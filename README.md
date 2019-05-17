@@ -1,33 +1,25 @@
 # On-Demand Counseling Service
 
-## Features
-- [ ] Sign-in and dashboard page for user
-- [ ] Sign-in and dashboard page for counselor
-- [ ] NoSQL: available counselors
-- [ ] DynamoDB: counselors info
-- [ ] DynamoDB: student info
-- [ ] DynamoDB: counselors info
-- [ ] Lambda: handle chat
-- [ ] Elasticsearch domain for the articles
+NYU Cloud Project - Spring 2019
 
-elasticsearch domain: available counselors
-    counselorId
-    status: Online, InSession, Offline
+![thumbnail](demo/thumbnail.png)
 
-DynamoDB
-    Counselor:
-        info
-        sessionId
+## Problem
 
-    Session
-        sessionId
-        time
+- Finding available health services can be an exhausting process, especially when it comes to therapy appointments.
+- We believe that it should not take such a long time to get connected with a physician.
 
-    User
-        info
-        sessionId
+## Solution: Heka
 
+- We want to build an end-to-end Lex counselling application that helps mitigate the long waiting issue with psychiatry appointments.
+- Users of our app are college students and counselors.
+- The bot will act like the primary caregiver and try to achieve the following goals:
+  - Ask leading questions to help the user describe the problem
+  - Categorize the issue according to some specified categories
+  - Provide some simple resources to help the patient
+- Upon patient request, the bot can connect the patient to an available counselor.
 
-https://heka-student.auth.us-east-1.amazoncognito.com/login?response_type=token&client_id=70nasoc4kjsjnllrfkg5f3oivh&redirect_uri=https://s3.amazonaws.com/nyu-heka/student/student.html
-
-https://heka-counselor.auth.us-east-1.amazoncognito.com/login?response_type=token&client_id=3rvc37il8j7fffsgv73fc2jsvo&redirect_uri=https://s3.amazonaws.com/nyu-heka/counselor/counselor.html
+## Demo Video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VaXiivJDWVI
+" target="_blank"><img src="http://img.youtube.com/vi/VaXiivJDWVI/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
