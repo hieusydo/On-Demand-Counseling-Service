@@ -23,3 +23,6 @@ NYU Cloud Project - Spring 2019
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VaXiivJDWVI
 " target="_blank"><img src="http://img.youtube.com/vi/VaXiivJDWVI/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+## Credits
+Free Adminpro theme by ColorLib
