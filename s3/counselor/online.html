@@ -74,7 +74,10 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="user-profile-wrap shadow-reset" style="margin-bottom: 15px; margin-top: 15px">
                         <div class="row">
-                            <h2>Your Status</h2>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <h2>Your Status</h2>
+                                <button type="button" class="btn btn-custon-four btn-success" onclick="setAvail()">Go Online</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,5 +85,46 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
+<script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.416.0.min.js"></script>
+<script type="text/javascript" src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
+<script type="text/javascript" src="node_modules/amazon-cognito-auth-js/dist/amazon-cognito-auth.min.js"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+    function setAvail() {
+        var apigClient = apigClientFactory.newClient({
+        // accessKey: accessKeyId,
+        // secretKey: secretAccessKey,
+        // sessionToken: sessionToken
+        });
+        var body = {
+            "counselorId": "sas1472@nyu.edu",
+            "statusToSet": "online"
+        };
+        var params = {};
+        var additionalParams = {
+            headers: {},
+            queryParams: {}
+        };
+        apigClient.onlinePost(params, body, additionalParams)
+        .then(function(result){
+            var reply = result.data.body;
+            console.log(result.data)
+        }).catch( function(err){
+            console.log(err);
+        });
+    }
+</script>
 
 </html>

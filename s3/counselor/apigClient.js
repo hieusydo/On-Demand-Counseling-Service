@@ -118,6 +118,24 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(chatbotOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
+    
+    apigClient.onlinePost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var onlinePostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/online').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(onlinePostRequest, authType, additionalParams, config.apiKey);
+    };
+    
 
     return apigClient;
 };
